@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Jsonp } from '@angular/http';
+import { Jsonp, Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class PeliculasService {
   private apiKey = '5294b41adf348df0ac2dbdcf65e50d8e';
   private urlMovieDb = 'https://api.themoviedb.org/3';
 
-  constructor( private jsonp: Jsonp ) { }
+  constructor(private jsonp: Jsonp, private http: Http ) { }
 
   getCartelera() {
     const desde = new Date();

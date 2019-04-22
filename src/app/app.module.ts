@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { JsonpModule, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -13,6 +14,7 @@ import { PeliculasService } from './services/peliculas.service';
 import { APP_ROUTING } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,11 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     NavbarComponent,
     HomeComponent,
     PeliculaComponent,
-    BuscarComponent
+    BuscarComponent,
+    PeliculaImagenPipe
   ],
   imports: [
-    BrowserModule, APP_ROUTING
+    BrowserModule, APP_ROUTING, JsonpModule, HttpModule
   ],
   providers: [PeliculasService],
   bootstrap: [AppComponent]
