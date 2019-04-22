@@ -35,6 +35,15 @@ export class PeliculasService {
     }));
   }
 
+  getPopularesNinios() {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.urlMovieDb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
+    return this.jsonp.get(url).pipe(
+      map( res => {
+        return res;
+    }));
+  }
+
   buscarPelicula( texto: string ) {
     // tslint:disable-next-line:max-line-length
     const url = `${this.urlMovieDb}/search/movie?query=${texto}&sort_by=popularity.desc&api_key=${this.apiKey}&language=es&callback=JSONP_CALLBACK`;
